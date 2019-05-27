@@ -24,9 +24,6 @@ namespace shawn_pudjowargono_assignment_01
         {
             accessible_tiles = new ArrayList();
 
-
-
-            
             //-1 -2
             //-1 +2
             //+1 -2

@@ -21,6 +21,17 @@ namespace shawn_pudjowargono_assignment_01
             chessboard.tiles[4, 5].step_order = 4;
             Console.WriteLine();
             chessboard.display_chessboard();
+            Console.WriteLine();
+
+            Console.Write("Knight current pos: {0}, {1}\n", chessboard.knight.row, chessboard.knight.column);
+            chessboard.knight.display_accessible_tiles();
+            Console.WriteLine();
+
+            chessboard.knight.row = 7;
+            chessboard.knight.column = 7;
+            chessboard.knight.update_accessible_tiles();
+            Console.Write("Knight current pos: {0}, {1}\n", chessboard.knight.row, chessboard.knight.column);
+            chessboard.knight.display_accessible_tiles();
 
 
 

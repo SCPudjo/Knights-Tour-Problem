@@ -23,7 +23,7 @@ namespace shawn_pudjowargono_assignment_01
 
         public void calculate_accessibility()
         {
-
+            return;
         }
     }
 }

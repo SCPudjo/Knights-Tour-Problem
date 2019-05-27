@@ -10,6 +10,7 @@ namespace shawn_pudjowargono_assignment_01
     {
         public int turn { get; set; }
         public Chessboard_tile[,] tiles = new Chessboard_tile[8, 8];
+        public Knight knight = new Knight();
 
         public Chessboard()
         {

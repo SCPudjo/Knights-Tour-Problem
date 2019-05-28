@@ -11,29 +11,38 @@ namespace shawn_pudjowargono_assignment_01
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Test");
             Chessboard chessboard = new Chessboard();
-            Console.WriteLine("Test");
-            chessboard.display_chessboard();
-            chessboard.tiles[0, 0].step_order = 1;
-            chessboard.tiles[2, 1].step_order = 2;
-            chessboard.tiles[3, 3].step_order = 3;
-            chessboard.tiles[4, 5].step_order = 4;
+            chessboard.display_chessboard_accessibility();
             Console.WriteLine();
-            chessboard.display_chessboard();
+            chessboard.display_chessboard_step_order();
             Console.WriteLine();
-
-            Console.Write("Knight current pos: {0}, {1}\n", chessboard.knight.row, chessboard.knight.column);
+            
+            chessboard.knight.display_current_position();
             chessboard.knight.display_accessible_tiles();
             Console.WriteLine();
 
-            chessboard.knight.row = 7;
-            chessboard.knight.column = 7;
-            chessboard.knight.update_accessible_tiles();
-            Console.Write("Knight current pos: {0}, {1}\n", chessboard.knight.row, chessboard.knight.column);
-            chessboard.knight.display_accessible_tiles();
+            int row;
+            int col;
+            //while (true)
+            //{
+            //    try
+            //    {
+            //        Console.WriteLine("Enter row: ");
+            //        row = int.Parse(Console.ReadLine());
+            //        Console.WriteLine("Enter col: ");
+            //        col = int.Parse(Console.ReadLine());
 
-
+            //        chessboard.move_knight(row, col);
+            //        chessboard.display_chessboard_step_order();
+            //        chessboard.knight.display_current_position();
+            //        chessboard.knight.display_accessible_tiles();
+            //        Console.WriteLine();
+            //    }
+            //    catch (Exception e)
+            //    {
+            //        Console.WriteLine("Invalid Entry, please try again");
+            //    }
+            //}
 
             //Console.WriteLine("Welcome to the Knight's Tour Problem simulation.");
             //Console.WriteLine("Please select a strategy:\n    0) Non-intelligent Strategy\n    1) Heuristic Strategy");

@@ -8,17 +8,16 @@ namespace shawn_pudjowargono_assignment_01
 {
     class Chessboard
     {
-        public static int knight_start_row = 3;
-        public static int knight_start_col = 4;
         public int turn { get; set; }
+
         public Chessboard_tile[,] tiles = new Chessboard_tile[8, 8];
-        public Knight knight = new Knight(knight_start_row, knight_start_col);
+        public Knight knight;
 
         public Chessboard()
         {
             turn = 1;
             create_chessboard_tiles();
-            tiles[knight_start_row, knight_start_col].step_order = turn;
+            update_chessboard_tile_accessibilities(); // might be redundant
         }
 
         public void create_chessboard_tiles()
@@ -27,9 +26,16 @@ namespace shawn_pudjowargono_assignment_01
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    tiles[i, k] = new Chessboard_tile(i,k);
+                    tiles[i, k] = new Chessboard_tile(i,k, this);
                 }
             }
+        }
+
+        public void create_knight(int x, int y)
+        {
+            knight = new Knight(x, y);
+            tiles[x, y].step_order = turn; // set start tile to value of 1
+            update_chessboard_tile_accessibilities();
         }
 
         public void display_chessboard_step_order()
@@ -58,41 +64,48 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
-        public void move_knight(int row, int column)
+        public void move_knight(int x, int y)
         {
-            if (tiles[row, column].step_order == 0)
+            if (tiles[x, y].step_order == 0)
             {
-                if (knight.move(row, column))
+                if (knight.move(x, y))
                 {
                     turn++;
-                    tiles[row, column].step_order = turn;
+                    tiles[x, y].step_order = turn;
+                    update_chessboard_tile_accessibilities();
                 }
                 
             }
             else
             {
-                Console.WriteLine("Error: Knight has already been on this tile\n");
+                //Console.WriteLine("Error: Knight has already been on this tile\n");
             }
         }
 
-        public void strategy_non_intelligent_method()
+        public void update_chessboard_tile_accessibilities()
         {
-
-        }
-
-        public void strategy_heuristic_method()
-        {
-
+            for (int i = 0; i < 8; i++)
+            {
+                for (int k = 0; k < 8; k++)
+                {
+                    tiles[i, k].update_accessibility();
+                }
+            }
         }
 
         public bool check_loss()
         {
             for (int i = 0; i < knight.accessible_tiles.Count; i++)
             {
-                var tuple = knight.accessible_tiles[i];
-                var tuple2 = Tuple.Create(2, 2);
-                var tuple3 = tuple2;
-                Console.WriteLine(tuple.Equals(tuple2));
+                int X = knight.accessible_tiles[i].x;
+                int Y = knight.accessible_tiles[i].y;
+
+                // check all accessible tile step_orders are greater than 0, meaning they have been steped on
+                if (tiles[X,Y].step_order == 0)
+                {
+                    return false; // return false as there is still a tile within reach with a step_order value of 0, 
+                                  // meaning the knight has never been there before
+                }
             }   
             return true;
         }

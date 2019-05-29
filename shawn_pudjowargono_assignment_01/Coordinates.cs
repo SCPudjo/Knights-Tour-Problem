@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace shawn_pudjowargono_assignment_01
+{
+    class Coordinates
+    {
+        public int x { get; set; } // row
+        public int y { get; set; } // column
+
+        /*
+         * Coordinates constructor (empty)
+         */
+        public Coordinates() { }
+
+        /*
+         * Coordinates constructor
+         */
+        public Coordinates(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        /*
+         * Prints out Coordinates x and y values in the form of "(x, y)" to console
+         */
+        public void display_coordinates()
+        {
+            Console.WriteLine("({0}, {1})", this.x, this.y);
+        }
+    }
+}

@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accessibility.cs" />
     <Compile Include="Chessboard.cs" />
     <Compile Include="Chessboard_tile.cs" />
     <Compile Include="Knight.cs" />
-    <Compile Include="Position.cs" />
+    <Compile Include="Coordinates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

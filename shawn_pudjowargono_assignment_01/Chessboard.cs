@@ -8,11 +8,14 @@ namespace shawn_pudjowargono_assignment_01
 {
     class Chessboard
     {
-        public int turn { get; set; }
+        public int turn { get; set; }   // keeps track of number of turns passed, starts at 1
 
-        public Chessboard_tile[,] tiles = new Chessboard_tile[8, 8];
-        public Knight knight;
+        public Chessboard_tile[,] tiles = new Chessboard_tile[8, 8];    // 64 Chessboard tiles arranged in an 8 by 8 grid
+        public Knight knight;   // Knight object for the Knight's Turn 
 
+        /*
+         * Chessboard constructor
+         */
         public Chessboard()
         {
             turn = 1;
@@ -20,6 +23,9 @@ namespace shawn_pudjowargono_assignment_01
             update_chessboard_tile_accessibilities(); // might be redundant
         }
 
+        /*
+         * Set each element in the tiles array to a Chessboard_tile object with appropriate x,y coordinate
+         */
         public void create_chessboard_tiles()
         {
             for (int i = 0; i < 8; i++)
@@ -31,6 +37,9 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
+        /*
+         * Initialize Knight object at x,y coordinates
+         */
         public void create_knight(int x, int y)
         {
             knight = new Knight(x, y);
@@ -38,6 +47,9 @@ namespace shawn_pudjowargono_assignment_01
             update_chessboard_tile_accessibilities();
         }
 
+        /*
+         * Display the full 8x8 chessboard with step order values
+         */
         public void display_chessboard_step_order()
         {
             Console.WriteLine("Chessboard Step Order:");
@@ -51,6 +63,9 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
+        /*
+         * Display the full 8x8 chessboard with accessibility values
+         */
         public void display_chessboard_accessibility()
         {
             Console.WriteLine("Chessboard Accessibility:");
@@ -64,6 +79,12 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
+        /*
+         * Checks if the Chessboard_tile at x,y has been previously stepped on
+         * by the Knight. If so, does nothing, otherwise, calls Knight.move()
+         * to move Knight to that position, then calls update_chessboard_tile_accessibilities()
+         * to update all tile accessibility ratings accordingly
+         */
         public void move_knight(int x, int y)
         {
             if (tiles[x, y].step_order == 0)
@@ -73,8 +94,7 @@ namespace shawn_pudjowargono_assignment_01
                     turn++;
                     tiles[x, y].step_order = turn;
                     update_chessboard_tile_accessibilities();
-                }
-                
+                }   
             }
             else
             {
@@ -82,6 +102,9 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
+        /*
+         *  Calls update_accessibility() on each Chessboard_tile in tiles array
+         */
         public void update_chessboard_tile_accessibilities()
         {
             for (int i = 0; i < 8; i++)
@@ -93,6 +116,11 @@ namespace shawn_pudjowargono_assignment_01
             }
         }
 
+        /*
+         * Checks the step_order value of all tiles within accessibility range of Knight and returns
+         * true if there are no values of 0, indicating there are no more available tiles to move to,
+         * otherwise returns false
+         */
         public bool check_loss()
         {
             for (int i = 0; i < knight.accessible_tiles.Count; i++)
@@ -104,7 +132,7 @@ namespace shawn_pudjowargono_assignment_01
                 if (tiles[X,Y].step_order == 0)
                 {
                     return false; // return false as there is still a tile within reach with a step_order value of 0, 
-                                  // meaning the knight has never been there before
+                                  // meaning the Knight has never been there before
                 }
             }   
             return true;

@@ -10,9 +10,12 @@ namespace shawn_pudjowargono_assignment_01
     class Knight : Accessibility
     {
         // List to hold Coordinates objects for all accessible tiles
+        // Accessibility is determined based on tiles that fall within the Knight's
+        // movement range based on the knight_movements patterns inherited from the
+        // Accessibility abstract class
         public List<Coordinates> accessible_tiles = new List<Coordinates>();
 
-        // Coordinate object to represent knight's current position
+        // Coordinates object to represent knight's current position
         Coordinates coordinates = new Coordinates();
 
         /*
@@ -26,7 +29,7 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Updates list of knight's accessbile tiles by add all tiles within range
+         * Updates list of knight's accessbile tiles by adding all tiles within range
          * based on knight's movement pattern from Accessibility abstract class
          */
         public override void update_accessibility()
@@ -67,7 +70,7 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Print all tiles within knight's range to console
+         * Print all tiles within Knight's range to console
          */
         public void display_accessible_tiles()
         {
@@ -79,7 +82,7 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Print knight's current coordinates to console
+         * Print Knight's current coordinates to console
          */
         public void display_current_position()
         {

@@ -33,7 +33,7 @@ namespace shawn_pudjowargono_assignment_01
                     lowest_accessibility = 9;
                     priority_tiles = new List<Coordinates>();
 
-                    // find lowest accessbility value amongst all tiles within reach, excluding those that 
+                    // find lowest accessibility value amongst all tiles within reach, excluding those that 
                     // Knight has already reached
                     for (int j = 0; j < chessboard.knight.accessible_tiles.Count; j++)
                     {
@@ -68,9 +68,11 @@ namespace shawn_pudjowargono_assignment_01
                     chessboard.move_knight(priority_tiles[random_tile_index].x, priority_tiles[random_tile_index].y);
                 }
                 Console.WriteLine("Trail {0}: The knight was able to successfully touch {1} squares.", trial_number++, chessboard.turn);
-                total_score += chessboard.turn; // add score total score
+                total_score += chessboard.turn; // add score to total score
                 chessboard.display_chessboard_step_order(); // display final step order
-                chessboard.display_chessboard_accessibility();
+                //chessboard.display_chessboard_accessibility(); // display final accessibility levels
+                Console.WriteLine();
+
                 chessboard = new Chessboard();  // reset chessboard
                 chessboard.create_knight(start_coordinates.x, start_coordinates.y); // reset knight position
             }
@@ -96,7 +98,9 @@ namespace shawn_pudjowargono_assignment_01
                     chessboard.move_knight(chessboard.knight.accessible_tiles[random_tile_index].x, chessboard.knight.accessible_tiles[random_tile_index].y);
                 }
                 Console.WriteLine("Trail {0}: The knight was able to successfully touch {1} squares.", trail_number++, chessboard.turn);
-                chessboard.display_chessboard_step_order();
+                chessboard.display_chessboard_step_order(); // display final step order
+                //chessboard.display_chessboard_accessibility(); // display final accessibility levels
+                Console.WriteLine();
                 total_score += chessboard.turn;
                 chessboard = new Chessboard();
                 chessboard.create_knight(start_coordinates.x, start_coordinates.y);
@@ -105,11 +109,11 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * returns int value greater than 1 of the number of trails user wants to attempt the Knight's Tour
+         * Returns int value greater than 1 of the number of trails user wants to attempt the Knight's Tour
          */
-        public static int get_number_of_trails()
+        public static int get_number_of_trials()
         {
-            Console.WriteLine("How many trails?");
+            Console.WriteLine("How many trials?");
             int num;
             while (true)
             {
@@ -142,7 +146,7 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * returns int value of 0 or 1, 0 representing Non-intelligence strategy and 1 representing Heuristic strategy
+         * Returns int value of 0 or 1, 0 representing Non-intelligence strategy and 1 representing Heuristic strategy
          */
         public static int get_strategy()
         {
@@ -173,7 +177,7 @@ namespace shawn_pudjowargono_assignment_01
         }
     
         /*
-         * returns Coordinate object storing knight's starting x and y coordinates based on user input
+         * Returns Coordinate object storing knight's starting x and y coordinates based on user input
          */
         public static Coordinates get_knight_start_position()
         {
@@ -208,9 +212,9 @@ namespace shawn_pudjowargono_assignment_01
 
         static void Main(string[] args)
         {
-            Coordinates start_coordinates; // declare Coordinates object to store knight's start position
+            Coordinates start_coordinates; // declare Coordinates object to store Knight's start position
             int strategy;                  // declare int to store selected strategy, 0 being Non-intelligence, 1 being Heuristic
-            int number_of_trails;          // declare int to store user input for number of trails
+            int number_of_trials;          // declare int to store user input for number of trials
 
             Chessboard chessboard = new Chessboard(); // create chessboard
 
@@ -219,23 +223,28 @@ namespace shawn_pudjowargono_assignment_01
             start_coordinates = get_knight_start_position();    // get knight start coordinates
             chessboard.create_knight(start_coordinates.x, start_coordinates.y); // create knight based on start coordinates
 
+            Console.WriteLine();
             chessboard.knight.display_current_position();   // displays knight's start coordinates
             chessboard.display_chessboard_step_order();     // displays knight's start position on chessboard
             chessboard.display_chessboard_accessibility();  // displays chessboard tile accessibility levels
+            Console.WriteLine();
 
             strategy = get_strategy();  // get strategy
-            number_of_trails = get_number_of_trails(); // get number of trails
+            number_of_trials = get_number_of_trials(); // get number of trials
 
+            Console.WriteLine("Please press any key to begin.");
+            Console.ReadKey();
             // call requested strategy number_of_trails number of times
             if (strategy == 0)
             {
-                start_non_intelligent_strategy(chessboard, number_of_trails, start_coordinates);
+                start_non_intelligent_strategy(chessboard, number_of_trials, start_coordinates);
             }
             else
             {
-                start_heuristic_strategy(chessboard, number_of_trails, start_coordinates);
+                start_heuristic_strategy(chessboard, number_of_trials, start_coordinates);
             }
-            Console.Read();
+            Console.WriteLine("Simulation complete. Please press any key to close this program.\n");
+            Console.ReadKey();
         }
     }
 }

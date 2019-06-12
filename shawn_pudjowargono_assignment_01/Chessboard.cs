@@ -9,7 +9,6 @@ namespace shawn_pudjowargono_assignment_01
     class Chessboard
     {
         public int turn { get; set; }   // keeps track of number of turns passed, starts at 1
-
         public Chessboard_tile[,] tiles = new Chessboard_tile[8, 8];    // 64 Chessboard tiles arranged in an 8 by 8 grid
         public Knight knight;   // Knight object for the Knight's Turn 
 
@@ -47,35 +46,18 @@ namespace shawn_pudjowargono_assignment_01
             update_chessboard_tile_accessibilities();
         }
 
-        /*
-         * Display the full 8x8 chessboard with step order values
-         */
-        public void display_chessboard_step_order()
+        //
+        public void get_chessboard_step_order(List<string> output_string)
         {
-            Console.WriteLine("Chessboard Step Order:");
-            for (int i = 0; i < 8; i++)
-            { 
-                for (int k = 0; k < 8; k++)
-                {
-                    Console.Write("[{0}]", tiles[i, k].step_order.ToString("00"));
-                }
-                Console.WriteLine();
-            }
-        }
-
-        /*
-         * Display the full 8x8 chessboard with accessibility values
-         */
-        public void display_chessboard_accessibility()
-        {
-            Console.WriteLine("Chessboard Accessibility:");
+            string row = "";
             for (int i = 0; i < 8; i++)
             {
                 for (int k = 0; k < 8; k++)
                 {
-                    Console.Write("[{0}]", tiles[i, k].accessibility);
+                    row += "["+tiles[i, k].step_order.ToString("00")+"]";
                 }
-                Console.WriteLine();
+                output_string.Add(row); // add string to output string
+                row = ""; // reset row string
             }
         }
 

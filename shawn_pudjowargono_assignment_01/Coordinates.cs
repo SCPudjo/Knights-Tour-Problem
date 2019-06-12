@@ -24,13 +24,5 @@ namespace shawn_pudjowargono_assignment_01
             this.x = x;
             this.y = y;
         }
-
-        /*
-         * Prints out Coordinates x and y values in the form of "(x, y)" to console
-         */
-        public void display_coordinates()
-        {
-            Console.WriteLine("({0}, {1})", this.x, this.y);
-        }
     }
 }

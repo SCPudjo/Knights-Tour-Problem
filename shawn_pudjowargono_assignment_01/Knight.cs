@@ -68,26 +68,5 @@ namespace shawn_pudjowargono_assignment_01
             //Console.WriteLine("Error: Requested Row/Column is out of reach!");
             return false;
         }
-
-        /*
-         * Print all tiles within Knight's range to console
-         */
-        public void display_accessible_tiles()
-        {
-            Console.WriteLine("Accessible tiles: ");
-            for (int i = 0; i < accessible_tiles.Count; i++)
-            {
-                accessible_tiles[i].display_coordinates();
-            }
-        }
-
-        /*
-         * Print Knight's current coordinates to console
-         */
-        public void display_current_position()
-        {
-            Console.WriteLine("Knight Current Position:");
-            coordinates.display_coordinates();
-        }
     }
 }

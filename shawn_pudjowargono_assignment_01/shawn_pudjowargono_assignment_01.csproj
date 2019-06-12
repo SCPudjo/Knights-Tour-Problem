@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accessibility.cs" />
-    <Compile Include="Chessboard.cs" />
+    <Compile Include="Chessboard_A.cs" />
+    <Compile Include="Chessboard_B.cs" />
     <Compile Include="Chessboard_tile.cs" />
     <Compile Include="Knight.cs" />
     <Compile Include="Coordinates.cs" />

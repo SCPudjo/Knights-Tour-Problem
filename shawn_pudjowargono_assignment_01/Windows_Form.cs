@@ -35,19 +35,16 @@ namespace shawn_pudjowargono_assignment_01
                 }
                 strategy = strategy_A.Checked ? 0 : 1;
 
-                if (results == null)
-                {
-                    results = new Results_Form();
-                    results.Visible = true;
-                }
-                else
+                Program.Start_Knights_Tour(start_x, start_y, strategy, number_of_trials);
+
+                if (results != null)
                 {
                     results.Close();
-                    results = new Results_Form();
-                    results.Visible = true;
                 }
+ 
+                results = new Results_Form(number_of_trials, strategy);
+                results.Visible = true;
                 
-                Program.Start_Knights_Tour(start_x, start_y, strategy, number_of_trials);
 
             } catch (Exception ex) {
 

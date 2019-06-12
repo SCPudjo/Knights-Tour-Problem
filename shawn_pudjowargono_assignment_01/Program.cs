@@ -9,12 +9,13 @@ namespace shawn_pudjowargono_assignment_01
 {
     class Program
     {
+        // The below four string variables are used to generate the path of output files
+        public static string current_directory = Environment.CurrentDirectory; // current working directory
+        public static string output_directory = "\\..\\..\\output\\"; // output directory from CWD
+        public static string non_intelligent_output = "ShawnPudjowargonoNonIntelligentMethod.txt"; // non intelligent method output file
+        public static string heuristics_output = "ShawnPudjowargonoHeuristicsMethod.txt"; // heuristics method output file
 
-        public static string current_directory = Environment.CurrentDirectory;
-        public static string output_directory = "\\..\\..\\output\\";
-        public static string non_intelligent_output = "ShawnPudjowargonoNonIntelligentMethod.txt";
-        public static string heuristics_output = "ShawnPudjowargonoHeuristicsMethod.txt";
-        public static List<String> output_string;
+        public static List<String> output_string; // String List that will store all the strings to be written to output file
 
         /*
          * Start heuristic strategy
@@ -125,144 +126,8 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Returns int value greater than 1 of the number of trails user wants to attempt the Knight's Tour
-         */
-        public static int get_number_of_trials()
-        {
-            Console.WriteLine("How many trials?");
-            int num;
-            while (true)
-            {
-                try
-                {
-                    num = int.Parse(Console.ReadLine());
-                    if (num < 1)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        if (num > 1)
-                        {
-                            Console.WriteLine("You selected {0} trails.", num);
-                        }
-                        else
-                        {
-                            Console.WriteLine("You selected {0} trail.", num);
-                        }
-                        
-                        return num;
-                    }
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Invalid Entry, please enter a number greater than zero:");
-                }
-            }
-        }
-
-        /*
-         * Returns int value of 0 or 1, 0 representing Non-intelligence strategy and 1 representing Heuristic strategy
-         */
-        public static int get_strategy()
-        {
-            Console.WriteLine("Please select a strategy:\n    0) Non-intelligent Strategy\n    1) Heuristic Strategy");
-            int num;
-            string strategy;
-            while (true)
-            {
-                try
-                {
-                    num = int.Parse(Console.ReadLine());
-                    if (num != 0 && num != 1)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        strategy = (num == 0) ? "You selected 'Non-intelligent Strategy'" : "You selected 'Heuristic Strategy'";
-                        Console.WriteLine(strategy);
-                        return num;
-                    }
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Invalid Entry, please enter 0 or 1:");
-                }
-            }
-        }
-    
-        /*
-         * Returns Coordinate object storing knight's starting x and y coordinates based on user input
-         */
-        public static Coordinates get_knight_start_position()
-        {
-            Console.WriteLine("Please enter a start tile coordinates:");
-            int start_x;
-            int start_y;
-            while (true)
-            {
-                try
-                {
-                    Console.WriteLine("Enter X: ");
-                    start_x = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Enter Y: ");
-                    start_y = int.Parse(Console.ReadLine());
-
-                    if (start_x < 0 || start_x > 7 || start_y < 0 || start_y > 7)
-                    {
-                        throw new Exception();
-                    }
-                    else
-                    {
-                        return new Coordinates(start_x, start_y);
-                    }
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Invalid Entry, please only enter numbers between 0 and 7:");
-                }
-            }
-            
-        }
-
-        //public static void Start_Console()
-        //{
-        //    Coordinates start_coordinates; // declare Coordinates object to store Knight's start position
-        //    int strategy;                  // declare int to store selected strategy, 0 being Non-intelligence, 1 being Heuristic
-        //    int number_of_trials;          // declare int to store user input for number of trials
-
-        //    Chessboard chessboard = new Chessboard(); // create chessboard
-
-        //    Console.WriteLine("Welcome to the Knight's Tour Problem simulation.");
-
-        //    start_coordinates = get_knight_start_position();    // get knight start coordinates
-        //    chessboard.create_knight(start_coordinates.x, start_coordinates.y); // create knight based on start coordinates
-
-        //    Console.WriteLine();
-        //    chessboard.knight.display_current_position();   // displays knight's start coordinates
-        //    chessboard.display_chessboard_step_order();     // displays knight's start position on chessboard
-        //    chessboard.display_chessboard_accessibility();  // displays chessboard tile accessibility levels
-        //    Console.WriteLine();
-
-        //    strategy = get_strategy();  // get strategy
-        //    number_of_trials = get_number_of_trials(); // get number of trials
-
-        //    Console.WriteLine("Please press any key to begin.");
-        //    Console.ReadKey();
-        //    // call requested strategy number_of_trails number of times
-        //    if (strategy == 0)
-        //    {
-        //        start_non_intelligent_strategy(chessboard, number_of_trials, start_coordinates);
-        //    }
-        //    else
-        //    {
-        //        start_heuristic_strategy(chessboard, number_of_trials, start_coordinates);
-        //    }
-        //    Console.WriteLine("Simulation complete. Please press any key to close this program.\n");
-        //    Console.ReadKey();
-        //}
-
+         * Starts Knight's Tour Problem based on input from Windows Form
+         */ 
         public static void Start_Knights_Tour(int start_x, int start_y, int strategy, int number_of_trials)
         {
             // Create Coordinates object to store Knight's start position
@@ -293,12 +158,6 @@ namespace shawn_pudjowargono_assignment_01
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Windows_Form());
-
-
-
-
-
-            Console.ReadKey();
         }
     }
 }

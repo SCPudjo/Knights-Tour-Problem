@@ -28,82 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.data_grid = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.results_button = new System.Windows.Forms.Button();
             this.strategy_label = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.data_grid)).BeginInit();
+            this.results_display_box = new System.Windows.Forms.TextBox();
+            this.results_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // data_grid
+            // results_button
             // 
-            this.data_grid.AllowUserToResizeColumns = false;
-            this.data_grid.AllowUserToResizeRows = false;
-            this.data_grid.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.data_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.data_grid.GridColor = System.Drawing.Color.Gainsboro;
-            this.data_grid.Location = new System.Drawing.Point(65, 119);
-            this.data_grid.Name = "data_grid";
-            this.data_grid.ReadOnly = true;
-            this.data_grid.RowTemplate.Height = 24;
-            this.data_grid.Size = new System.Drawing.Size(240, 150);
-            this.data_grid.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(485, 119);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(485, 201);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.results_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.results_button.Location = new System.Drawing.Point(121, 358);
+            this.results_button.Name = "results_button";
+            this.results_button.Size = new System.Drawing.Size(226, 39);
+            this.results_button.TabIndex = 2;
+            this.results_button.Text = "View Full Results";
+            this.results_button.UseVisualStyleBackColor = true;
+            this.results_button.Click += new System.EventHandler(this.results_button_Click);
             // 
             // strategy_label
             // 
             this.strategy_label.AutoSize = true;
             this.strategy_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.strategy_label.ForeColor = System.Drawing.SystemColors.Control;
-            this.strategy_label.Location = new System.Drawing.Point(59, 48);
+            this.strategy_label.Location = new System.Drawing.Point(45, 38);
             this.strategy_label.Name = "strategy_label";
-            this.strategy_label.Size = new System.Drawing.Size(93, 32);
+            this.strategy_label.Size = new System.Drawing.Size(0, 32);
             this.strategy_label.TabIndex = 4;
-            this.strategy_label.Text = "label1";
+            // 
+            // results_display_box
+            // 
+            this.results_display_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.results_display_box.Location = new System.Drawing.Point(67, 77);
+            this.results_display_box.Multiline = true;
+            this.results_display_box.Name = "results_display_box";
+            this.results_display_box.ReadOnly = true;
+            this.results_display_box.Size = new System.Drawing.Size(332, 250);
+            this.results_display_box.TabIndex = 5;
+            // 
+            // results_label
+            // 
+            this.results_label.AutoSize = true;
+            this.results_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.results_label.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.results_label.Location = new System.Drawing.Point(61, 25);
+            this.results_label.Name = "results_label";
+            this.results_label.Size = new System.Drawing.Size(157, 32);
+            this.results_label.TabIndex = 6;
+            this.results_label.Text = "Last Result";
             // 
             // Results_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(694, 477);
+            this.ClientSize = new System.Drawing.Size(458, 432);
+            this.Controls.Add(this.results_label);
+            this.Controls.Add(this.results_display_box);
             this.Controls.Add(this.strategy_label);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.data_grid);
+            this.Controls.Add(this.results_button);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Results_Form";
             this.Text = "Results";
-            ((System.ComponentModel.ISupportInitialize)(this.data_grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView data_grid;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button results_button;
         private System.Windows.Forms.Label strategy_label;
+        private System.Windows.Forms.TextBox results_display_box;
+        private System.Windows.Forms.Label results_label;
     }
 }

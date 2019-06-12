@@ -144,7 +144,7 @@
             this.number_of_trials_input.Location = new System.Drawing.Point(298, 272);
             this.number_of_trials_input.Margin = new System.Windows.Forms.Padding(4);
             this.number_of_trials_input.Maximum = new decimal(new int[] {
-            1000,
+            999,
             0,
             0,
             0});

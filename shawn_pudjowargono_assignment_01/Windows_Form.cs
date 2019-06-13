@@ -25,7 +25,7 @@ namespace shawn_pudjowargono_assignment_01
             try
             {
                 int start_x = Convert.ToInt32(x_input.Value);
-                int start_y = Convert.ToInt32(x_input.Value);
+                int start_y = Convert.ToInt32(y_input.Value);
                 int number_of_trials = Convert.ToInt32(number_of_trials_input.Value);
                 int strategy;
 
@@ -33,30 +33,24 @@ namespace shawn_pudjowargono_assignment_01
                 {
                     throw new Exception();
                 }
-                strategy = strategy_A.Checked ? 0 : 1;
 
+                strategy = strategy_A.Checked ? 0 : 1;
                 Program.Start_Knights_Tour(start_x, start_y, strategy, number_of_trials);
 
                 if (results != null)
                 {
                     results.Close();
                 }
- 
+
                 results = new Results_Form(number_of_trials, strategy);
                 results.Visible = true;
-                
-
-            } catch (Exception ex) {
-
+            }
+            catch (Exception ex)
+            {
                 string caption = "ERROR:";
                 string message = "Please select a strategy!";
                 MessageBox.Show(message, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-
-            //Program.Start_Console();
-            //Console.WriteLine("Test");
-
         }
     }
 }

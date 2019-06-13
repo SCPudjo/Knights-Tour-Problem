@@ -75,7 +75,7 @@
             // 
             this.x_input.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.x_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.x_input.Location = new System.Drawing.Point(387, 94);
+            this.x_input.Location = new System.Drawing.Point(387, 125);
             this.x_input.Margin = new System.Windows.Forms.Padding(4);
             this.x_input.Maximum = new decimal(new int[] {
             7,
@@ -90,7 +90,7 @@
             // 
             this.y_input.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.y_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.y_input.Location = new System.Drawing.Point(387, 124);
+            this.y_input.Location = new System.Drawing.Point(387, 94);
             this.y_input.Margin = new System.Windows.Forms.Padding(4);
             this.y_input.Maximum = new decimal(new int[] {
             7,

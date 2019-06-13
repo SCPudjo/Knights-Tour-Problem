@@ -28,15 +28,6 @@ namespace shawn_pudjowargono_assignment_01
             InitializeComponent();
             this.strategy = strategy;
             this.number_of_trials = number_of_trials;
-
-            if (strategy == 0)
-            {
-                results_label.Text = "Last Non-Intelligent Result";
-            }
-            else
-            {
-                results_label.Text = "Last Heuristics Result";
-            }
             set_results_display_label();
         }
 
@@ -48,11 +39,15 @@ namespace shawn_pudjowargono_assignment_01
             // The contents of the text file is stored in the string array
             if (strategy == 0)
             {
-                output_string = File.ReadAllLines(current_directory + output_directory + non_intelligent_output);
+                results_label.Text = "Trial " + number_of_trials + ": Non-Intelligent";
+                output_string = File.ReadAllLines(current_directory + output_directory + 
+                                                  non_intelligent_output);
             }
             else
             {
-                output_string = File.ReadAllLines(current_directory + output_directory + heuristics_output);
+                results_label.Text = "Trial " + number_of_trials + ": Heuristics";
+                output_string = File.ReadAllLines(current_directory + output_directory + 
+                                                  heuristics_output);
             }
 
             // This loop searches output_string for the final trial
@@ -77,12 +72,19 @@ namespace shawn_pudjowargono_assignment_01
         {
             if (strategy == 0)
             {
-                Process.Start("notepad.exe", current_directory + output_directory + non_intelligent_output);
+                Process.Start("notepad.exe", 
+                              current_directory + output_directory + non_intelligent_output);
             }
             else
             {
-                Process.Start("notepad.exe", current_directory + output_directory + heuristics_output);
+                Process.Start("notepad.exe", 
+                              current_directory + output_directory + heuristics_output);
             }
+        }
+
+        private void results_display_box_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

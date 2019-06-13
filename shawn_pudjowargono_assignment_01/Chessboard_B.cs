@@ -9,7 +9,8 @@ namespace shawn_pudjowargono_assignment_01
     partial class Chessboard
     {
         /*
-         * Set each element in the tiles array to a Chessboard_tile object with appropriate x,y coordinate
+         * Set each element in the tiles array to a Chessboard_tile object 
+         * with appropriate x,y coordinate
          */
         public void create_chessboard_tiles()
         {
@@ -35,7 +36,7 @@ namespace shawn_pudjowargono_assignment_01
         /*
          * Adds representation of Knight movement order to a List of strings
          * to be used to print to output text files
-         */ 
+         */
         public void get_chessboard_step_order(List<string> output_string)
         {
             string row = "";
@@ -53,8 +54,9 @@ namespace shawn_pudjowargono_assignment_01
         /*
          * Checks if the Chessboard_tile at x,y has been previously stepped on
          * by the Knight. If so, does nothing, otherwise, calls Knight.move()
-         * to move Knight to that position, then calls update_chessboard_tile_accessibilities()
-         * to update all tile accessibility ratings accordingly
+         * to move Knight to that position, then calls 
+         * update_chessboard_tile_accessibilities() to update all tile 
+         * accessibility ratings accordingly
          */
         public void move_knight(int x, int y)
         {
@@ -66,10 +68,6 @@ namespace shawn_pudjowargono_assignment_01
                     tiles[x, y].step_order = turn;
                     update_chessboard_tile_accessibilities();
                 }   
-            }
-            else
-            {
-                //Console.WriteLine("Error: Knight has already been on this tile\n");
             }
         }
 
@@ -88,9 +86,9 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Checks the step_order value of all tiles within accessibility range of Knight and returns
-         * true if there are no values of 0, indicating there are no more available tiles to move to,
-         * otherwise returns false
+         * Checks the step_order value of all tiles within accessibility range 
+         * of Knight and returns true if there are no values of 0, indicating 
+         * there are no more available tiles to move to, otherwise returns false
          */
         public bool check_loss()
         {
@@ -99,10 +97,12 @@ namespace shawn_pudjowargono_assignment_01
                 int X = knight.accessible_tiles[i].x;
                 int Y = knight.accessible_tiles[i].y;
 
-                // check all accessible tile step_orders are greater than 0, meaning they have been steped on
+                // Check all accessible tile step_orders are greater than 0, 
+                // meaning they have been steped on
                 if (tiles[X,Y].step_order == 0)
                 {
-                    return false; // return false as there is still a tile within reach with a step_order value of 0, 
+                    return false; // Return false as there is still a tile 
+                                  // within reach with a step_order value of 0, 
                                   // meaning the Knight has never been there before
                 }
             }   

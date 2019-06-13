@@ -64,6 +64,7 @@
             this.results_display_box.ReadOnly = true;
             this.results_display_box.Size = new System.Drawing.Size(332, 250);
             this.results_display_box.TabIndex = 5;
+            this.results_display_box.TextChanged += new System.EventHandler(this.results_display_box_TextChanged);
             // 
             // results_label
             // 

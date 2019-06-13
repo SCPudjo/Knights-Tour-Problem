@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +8,9 @@ namespace shawn_pudjowargono_assignment_01
 {
     class Knight : Accessibility
     {
-        // List to hold Coordinates objects for all accessible tiles
-        // Accessibility is determined based on tiles that fall within the Knight's
-        // movement range based on the knight_movements patterns inherited from the
+        // List to hold Coordinates objects for each accessible tile within Knight's range
+        // Accessibility is determined by on tiles that fall within the Knight's
+        // movement range based on the knight_movements array inherited from the
         // Accessibility abstract class
         public List<Coordinates> accessible_tiles = new List<Coordinates>();
 
@@ -29,27 +28,38 @@ namespace shawn_pudjowargono_assignment_01
         }
 
         /*
-         * Updates list of knight's accessbile tiles by adding all tiles within range
-         * based on knight's movement pattern from Accessibility abstract class
+         * Updates list of Knight's accessbile tiles by adding all tiles within range
+         * to the accessible_tiles List
          */
         public override void update_accessibility()
         {
             accessible_tiles = new List<Coordinates>();
             for (int i = 0; i < 8; i++)
             {
-                if (this.coordinates.x + knight_movements[i, 0] >= 0 && this.coordinates.x + knight_movements[i, 0] <= 7 &&
-                    this.coordinates.y + knight_movements[i, 1] >= 0 && this.coordinates.y + knight_movements[i, 1] <= 7)
+                if (this.coordinates.x + knight_movements[i, 0] >= 0 && 
+                    this.coordinates.x + knight_movements[i, 0] <= 7 &&
+                    this.coordinates.y + knight_movements[i, 1] >= 0 && 
+                    this.coordinates.y + knight_movements[i, 1] <= 7)
                 {
-                    accessible_tiles.Add(new Coordinates((this.coordinates.x + knight_movements[i, 0]), 
-                                                         (this.coordinates.y + knight_movements[i, 1])));
+                    accessible_tiles.Add(new Coordinates((this.coordinates.x + 
+                                                          knight_movements[i, 0]), 
+                                                         (this.coordinates.y + 
+                                                          knight_movements[i, 1])));
                 }
             }
         }
 
         /*
-         * Changes knight's x and y coordinates by searching through all it's
+         * Changes Knight's x and y coordinates by searching through all it's
          * accessible tiles and finding the tile with coordinates that match
          * the x and y arguments passed
+         * 
+         * Returns true upon successfully moving, which is used by the Chessboard
+         * as a condition to increment turn number, update the new tile's step order
+         * value and update all tile accessibility ratings
+         * 
+         * Returns false if the x and y coordinates passed are invalid, meaning the
+         * requested tile does not fall within the Knight's range
          */
         public bool move(int x, int y)
         {
@@ -59,13 +69,10 @@ namespace shawn_pudjowargono_assignment_01
                 {
                     this.coordinates.x = x;
                     this.coordinates.y = y;
-                    //Console.WriteLine("Knight New Position:");
-                    //coordinates.display_coordinates();
                     update_accessibility();
                     return true;
                 }
             }
-            //Console.WriteLine("Error: Requested Row/Column is out of reach!");
             return false;
         }
     }

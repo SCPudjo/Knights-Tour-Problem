@@ -1,7 +1,6 @@
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\bin\Debug\shawn_pudjowargono_assignment_01.exe.config
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\bin\Debug\shawn_pudjowargono_assignment_01.exe
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\bin\Debug\shawn_pudjowargono_assignment_01.pdb
-C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.csprojAssemblyReference.cache
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.csproj.CoreCompileInputs.cache
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.exe
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.pdb
@@ -9,3 +8,4 @@ C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.Windows_Form.resources
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.csproj.GenerateResource.cache
 C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.Results_Form.resources
+C:\Users\Shawn\source\repos\shawn_pudjowargono_assignment_01\shawn_pudjowargono_assignment_01\obj\Debug\shawn_pudjowargono_assignment_01.csprojAssemblyReference.cache

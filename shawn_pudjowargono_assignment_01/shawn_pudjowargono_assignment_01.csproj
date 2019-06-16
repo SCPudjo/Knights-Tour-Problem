@@ -78,6 +78,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Results_Form.resx">
@@ -88,10 +89,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\knight.jpg" />
+    <Folder Include="output\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="output\" />
+    <Content Include="resources\howzer_holy_knight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

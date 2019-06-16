@@ -165,6 +165,7 @@
             // strategy_A
             // 
             this.strategy_A.AutoSize = true;
+            this.strategy_A.Checked = true;
             this.strategy_A.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.strategy_A.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.strategy_A.Location = new System.Drawing.Point(201, 165);
@@ -186,7 +187,6 @@
             this.strategy_B.Name = "strategy_B";
             this.strategy_B.Size = new System.Drawing.Size(108, 29);
             this.strategy_B.TabIndex = 12;
-            this.strategy_B.TabStop = true;
             this.strategy_B.Text = "Heuristic";
             this.strategy_B.UseVisualStyleBackColor = true;
             // 
@@ -216,14 +216,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::shawn_pudjowargono_assignment_01.Properties.Resources.knight;
-            this.pictureBox1.Location = new System.Drawing.Point(555, 25);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Image = global::shawn_pudjowargono_assignment_01.Properties.Resources.howzer_holy_knight;
+            this.pictureBox1.Location = new System.Drawing.Point(559, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 344);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.Size = new System.Drawing.Size(200, 345);
+            this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
             // 
             // Windows_Form
@@ -232,11 +229,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(782, 403);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.strategy_B);
             this.Controls.Add(this.strategy_A);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.number_of_trials_input);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -271,10 +268,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown number_of_trials_input;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton strategy_A;
         private System.Windows.Forms.RadioButton strategy_B;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

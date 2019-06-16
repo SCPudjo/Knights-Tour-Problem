@@ -17,12 +17,15 @@ namespace shawn_pudjowargono_assignment_01
         public int number_of_trials;
         public int strategy;
         
-
         public static string current_directory = Environment.CurrentDirectory;
         public static string output_directory = "\\..\\..\\output\\";
         public static string non_intelligent_output = "ShawnPudjowargonoNonIntelligentMethod.txt";
         public static string heuristics_output = "ShawnPudjowargonoHeuristicsMethod.txt";
 
+        /*
+         * Results for constructor. Called from Windows_Form after all trials are 
+         * executed to display results.
+         */
         public Results_Form(int number_of_trials, int strategy)
         {
             InitializeComponent();
@@ -31,6 +34,9 @@ namespace shawn_pudjowargono_assignment_01
             set_results_display_label();
         }
 
+        /*
+         * Called upon construction of Results_Form to display results
+         */
         private void set_results_display_label()
         {
             string[] output_string; // Declare string to hold results of final trial
@@ -39,23 +45,25 @@ namespace shawn_pudjowargono_assignment_01
             // The contents of the text file is stored in the string array
             if (strategy == 0)
             {
-                results_label.Text = "Trial " + number_of_trials + ": Non-Intelligent";
+                results_label.Text = "Final Non-Intelligent Trial";
                 output_string = File.ReadAllLines(current_directory + output_directory + 
                                                   non_intelligent_output);
             }
             else
             {
-                results_label.Text = "Trial " + number_of_trials + ": Heuristics";
+                results_label.Text = "Final Heuristics Trial";
                 output_string = File.ReadAllLines(current_directory + output_directory + 
                                                   heuristics_output);
             }
 
             // This loop searches output_string for the final trial
-            // and displays the resulting step order in the Results Windows form
+            // and displays the score and resulting step order in the 
+            // Results Windows form
             for (int i = 0; i < output_string.Length; i++)
             {
                 if (output_string[i].Contains("Trial " + number_of_trials))
                 {
+                    trial_results_label.Text = output_string[i];
                     i++;
                     for (int k = i; k < i+8; k++)
                     {
@@ -68,6 +76,9 @@ namespace shawn_pudjowargono_assignment_01
            
         }
 
+        /*
+         * Open text file with full history of trials for the current run
+         */ 
         private void results_button_Click(object sender, EventArgs e)
         {
             if (strategy == 0)
@@ -80,11 +91,6 @@ namespace shawn_pudjowargono_assignment_01
                 Process.Start("notepad.exe", 
                               current_directory + output_directory + heuristics_output);
             }
-        }
-
-        private void results_display_box_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

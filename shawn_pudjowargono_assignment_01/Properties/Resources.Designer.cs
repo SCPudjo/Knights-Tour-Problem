@@ -63,9 +63,9 @@ namespace shawn_pudjowargono_assignment_01.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap knight {
+        internal static System.Drawing.Bitmap howzer_holy_knight {
             get {
-                object obj = ResourceManager.GetObject("knight", resourceCulture);
+                object obj = ResourceManager.GetObject("howzer_holy_knight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

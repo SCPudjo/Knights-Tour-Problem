@@ -88,9 +88,7 @@
       <DependentUpon>Windows_Form.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="output\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="resources\howzer_holy_knight.png" />
   </ItemGroup>

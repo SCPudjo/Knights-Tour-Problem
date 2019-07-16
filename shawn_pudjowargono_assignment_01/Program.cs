@@ -9,16 +9,10 @@ namespace shawn_pudjowargono_assignment_01
 {
     class Program
     {
-        // The below four string variables are used to generate the path of output files
-        // Current working directory
-        public static string current_directory = Environment.CurrentDirectory;
-        // Output directory from CWD
-        public static string output_directory = "\\..\\..\\output\\";
         // Non intelligent method output file
         public static string non_intelligent_output = "ShawnPudjowargonoNonIntelligentMethod.txt";
         // Heuristics method output file
         public static string heuristics_output = "ShawnPudjowargonoHeuristicsMethod.txt";
-
         // String List that will store all the strings to be written to output file
         public static List<String> output_string; 
 
@@ -108,8 +102,7 @@ namespace shawn_pudjowargono_assignment_01
             output_string.Add("Average Score: " + (total_score / number_of_trials)); 
 
             // Print output to heuristic txt file
-            System.IO.File.WriteAllLines(@current_directory + output_directory + 
-                                         heuristics_output, output_string);
+            System.IO.File.Appe(@heuristics_output, output_string);
         }
 
         /*
@@ -154,8 +147,7 @@ namespace shawn_pudjowargono_assignment_01
             output_string.Add("Average Score: " + (total_score / number_of_trials)); 
 
             // Print output to non intelligent txt file
-            System.IO.File.WriteAllLines(@current_directory + output_directory + 
-                                         non_intelligent_output, output_string);
+            System.IO.File.WriteAllLines(@non_intelligent_output, output_string);
         }
 
         /*

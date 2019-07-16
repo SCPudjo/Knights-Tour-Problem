@@ -16,10 +16,9 @@ namespace shawn_pudjowargono_assignment_01
     {
         public int number_of_trials;
         public int strategy;
-        
-        public static string current_directory = Environment.CurrentDirectory;
-        public static string output_directory = "\\..\\..\\output\\";
+        // Non intelligent method output file
         public static string non_intelligent_output = "ShawnPudjowargonoNonIntelligentMethod.txt";
+        // Heuristics method output file
         public static string heuristics_output = "ShawnPudjowargonoHeuristicsMethod.txt";
 
         /*
@@ -46,14 +45,12 @@ namespace shawn_pudjowargono_assignment_01
             if (strategy == 0)
             {
                 results_label.Text = "Final Non-Intelligent Trial";
-                output_string = File.ReadAllLines(current_directory + output_directory + 
-                                                  non_intelligent_output);
+                output_string = File.ReadAllLines(non_intelligent_output);
             }
             else
             {
                 results_label.Text = "Final Heuristics Trial";
-                output_string = File.ReadAllLines(current_directory + output_directory + 
-                                                  heuristics_output);
+                output_string = File.ReadAllLines(heuristics_output);
             }
 
             // This loop searches output_string for the final trial
@@ -83,13 +80,11 @@ namespace shawn_pudjowargono_assignment_01
         {
             if (strategy == 0)
             {
-                Process.Start("notepad.exe", 
-                              current_directory + output_directory + non_intelligent_output);
+                Process.Start("notepad.exe", non_intelligent_output);
             }
             else
             {
-                Process.Start("notepad.exe", 
-                              current_directory + output_directory + heuristics_output);
+                Process.Start("notepad.exe", heuristics_output);
             }
         }
     }
